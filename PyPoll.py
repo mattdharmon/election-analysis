@@ -29,6 +29,8 @@ for candidate_name, data in candidate_votes.items():
     vote_percentage = float(votes) / float(total_votes) * 100
     candidate_votes[candidate_name]["percentage"] = vote_percentage
 
+print(candidate_votes)
+
 # Find the winning candidate
 winning_candidate = ""
 winning_count = 0
@@ -54,6 +56,8 @@ with open(file_to_save, "w") as text_file:
 
     # Print each candidate results
     for candidate_name, data in candidate_votes.items():
+        vote_percentage = data["percentage"]
+        votes = data["votes"]
         candidate_results = f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n"
         text_file.write(candidate_results)
         print(candidate_results)
